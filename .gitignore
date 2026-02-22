@@ -1,0 +1,8 @@
+s3sync-go
+*.exe
+*.test
+*.out
+
+.remotely-save-cli-state.json
+
+.DS_Store

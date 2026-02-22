@@ -1,0 +1,7 @@
+This project is an independent CLI reimplementation inspired by:
+
+  Remotely Save (Obsidian plugin)
+  https://github.com/remotely-save/remotely-save
+
+It is intended for headless/CLI sync workflows while preserving
+S3 data format compatibility used by Obsidian vault sync setups.
