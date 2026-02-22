@@ -54,12 +54,10 @@ jobs:
           fi
 
           target="${bin}-${version}-${GOOS}-${GOARCH}"
-          out_bin="${target}${ext}"
-          go build -trimpath -ldflags "-s -w" -o "dist/${out_bin}" .
-
           pkg_dir="dist/${target}"
           mkdir -p "${pkg_dir}"
-          cp "dist/${out_bin}" "${pkg_dir}/${bin}${ext}"
+          go build -trimpath -ldflags "-s -w" -o "${pkg_dir}/${bin}${ext}" .
+
           cp README.md LICENSE NOTICE "${pkg_dir}/"
 
           if [ "$archive_ext" = "zip" ]; then
@@ -68,7 +66,6 @@ jobs:
             tar -C dist -czf "dist/${target}.tar.gz" "${target}"
           fi
 
-          rm -f "dist/${out_bin}"
           rm -rf "${pkg_dir}"
 
       - name: Upload packaged artifact
