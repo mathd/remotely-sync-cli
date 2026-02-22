@@ -40,6 +40,12 @@ make tidy
 make build
 ```
 
+## CI/CD and prebuilt binaries
+
+- CI runs on every push/PR (`.github/workflows/ci.yml`) and validates `go test ./...` plus cross-platform builds.
+- Tagged releases (`v*`) trigger `.github/workflows/release.yml`, which publishes prebuilt archives for Linux/macOS/Windows and a `checksums.txt` file.
+- Binaries are not code-signed by default. They still run on most systems, but some platforms (especially macOS) may show extra trust prompts.
+
 ## Quick start
 
 ```bash
